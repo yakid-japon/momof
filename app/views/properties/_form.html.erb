@@ -1,0 +1,61 @@
+<%= form_with(model: property, local: true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :Property %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Rent %>
+    <%= form.number_field :rent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adress %>
+    <%= form.text_area :adress %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Building_age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Remarks %>
+    <%= form.text_area :remarks %>
+  </div>
+
+  <hr>
+  <%= form.fields_for :railways do |r| %>
+    <h2>Name of railway line <%= r.index + 1 %></h2>
+
+    <div class="field">
+      <%= r.label :Name_of_railway_line %>
+      <%= r.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= r.label :Station_name %>
+      <%= r.text_field :station %>
+    </div>
+
+    <div class="field">
+      <%= r.label :How_many_minutes_walk %>
+      <%= r.number_field :minute %> <span>min/mins</span>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

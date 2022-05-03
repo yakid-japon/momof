@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Railways</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Station</th>
+      <th>Minute</th>
+      <th>Property</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @railways.each do |railway| %>
+      <tr>
+        <td><%= railway.name %></td>
+        <td><%= railway.station %></td>
+        <td><%= railway.minute %></td>
+        <td><%= railway.property %></td>
+        <td><%= link_to 'Show', railway %></td>
+        <td><%= link_to 'Edit', edit_railway_path(railway) %></td>
+        <td><%= link_to 'Destroy', railway, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Railway', new_railway_path %>
