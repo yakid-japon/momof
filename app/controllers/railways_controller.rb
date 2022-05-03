@@ -13,7 +13,6 @@ class RailwaysController < ApplicationController
   def new
     @railway = Railway.new
   end
-
   # GET /railways/1/edit
   def edit
   end
